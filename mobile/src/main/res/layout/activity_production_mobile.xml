@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:orientation="vertical"
+    android:background="#f5f5f5">
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/order_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="Pedido de Aylin"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_gravity="center_horizontal"
+        android:textColor="#000" />
+
+    <!-- Customer Name -->
+    <TextView
+        android:id="@+id/customer_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Diego"
+        android:layout_marginTop="4dp"
+        android:textSize="18sp"
+        android:layout_gravity="center_horizontal"
+        android:textColor="#000" />
+
+    <!-- Order Details with Status -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="4dp">
+
+        <!-- Order Details -->
+        <TextView
+            android:id="@+id/order_details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="10 Litros de salsa habanera"
+            android:textSize="18sp"
+            android:textColor="#000" />
+
+        <!-- Progress Status Indicator -->
+        <ImageView
+            android:id="@+id/status_point"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/circle_pending"
+            android:layout_marginStart="20dp" />
+    </LinearLayout>
+
+    <!-- Timer with Icon -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="8dp">
+
+        <!-- Timer -->
+        <TextView
+            android:id="@+id/timer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="8:39"
+            android:textSize="24sp"
+            android:textColor="#000" />
+
+        <!-- Timer Icon -->
+        <ImageView
+            android:id="@+id/timer_icon"
+            android:layout_width="30dp"
+            android:layout_height="33dp"
+            android:src="@mipmap/ic_timer"
+            android:layout_marginStart="8dp" />
+    </LinearLayout>
+
+    <!-- Instructions Label -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Preparar los ingredientes:"
+        android:textSize="18sp"
+        android:textColor="#000" />
+
+    <!-- Instructions -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="8dp"
+        android:background="#ffffff"
+        android:padding="8dp"
+        android:elevation="2dp">
+
+        <TextView
+            android:id="@+id/instructions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Lava los chiles habaneros y retira los tallos.\nPela y corta la cebolla en trozos grandes.\nPela los dientes de ajo.\nPela y corta la zanahoria en rodajas."
+            android:textSize="18sp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:textColor="#000" />
+    </LinearLayout>
+
+    <!-- Next Button -->
+    <Button
+        android:id="@+id/next_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="100dp"
+        android:backgroundTint="#6200EA"
+        android:text="Siguiente"
+        android:textColor="#fff" />
+</LinearLayout>
