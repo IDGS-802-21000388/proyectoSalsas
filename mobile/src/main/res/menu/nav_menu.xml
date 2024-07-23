@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn = "navigation_view">
+
+    <group
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/nav_home"
+            android:title="Home"/>
+
+        <item
+            android:id="@+id/nav_assigment"
+            android:icon="@drawable/nav_assignment"
+            android:title="Assigment"/>
+        <item
+            android:id="@+id/nav_recipe"
+            android:icon="@drawable/nav_recipe"
+            android:title="Recipe"/>
+        <item
+            android:id="@+id/nav_visibility"
+            android:icon="@drawable/nav_visibility"
+            android:title="Visibility"/>
+        <item
+            android:id="@+id/nav_shipping"
+            android:icon="@drawable/nav_shipping"
+            android:title="Shipping"/>
+    </group>
+
+    <item
+        android:title="">
+
+        <menu>
+            <item
+                android:id="@+id/nav_logout"
+                android:icon="@drawable/nav_logout"
+                android:title="Logout"/>
+        </menu>
+    </item>
+
+</menu>

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.wear.widget.BoxInsetLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="8dp"
+    android:background="@color/background_color"
+    tools:context=".PedidoDetalles">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+
+        <!-- Title -->
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/order_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pedido de Aylin"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="@color/title_color" />
+
+        <!-- Customer Name -->
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/customer_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Diego"
+            android:textSize="12sp"
+            android:textColor="@color/secondary_text_color"
+            android:layout_marginTop="8dp"/>
+
+        <!-- Order Details with Status -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="16dp">
+
+            <!-- Order Details -->
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/order_details"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="10 L de salsa habanera"
+                android:textSize="12sp"
+                android:textColor="@color/primary_text_color" />
+
+            <!-- Progress Status Indicator -->
+            <ImageView
+                android:id="@+id/status_point"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:src="@drawable/circle_pending"
+                android:layout_marginStart="8dp" />
+        </LinearLayout>
+
+        <!-- Timer with Icon -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="16dp">
+
+            <!-- Timer -->
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/timer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="8:39"
+                android:textSize="14sp"
+                android:textColor="@color/primary_text_color" />
+
+            <!-- Timer Icon -->
+            <ImageView
+                android:id="@+id/timer_icon"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:src="@drawable/ic_timer"
+                android:layout_marginStart="4dp" />
+        </LinearLayout>
+
+        <!-- Instructions Label -->
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Preparar los ingredientes:"
+            android:textSize="12sp"
+            android:textColor="@color/primary_text_color" />
+
+        <!-- Instructions inside CardView -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            app:cardElevation="2dp"
+            app:cardCornerRadius="4dp"
+            android:padding="8dp"
+            android:background="@color/white">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/instructions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Lava los chiles y retira los tallos.\nCorta la cebolla en trozos.\nPela los ajos.\nCorta la zanahoria en rodajas."
+                android:textSize="12sp"
+                android:textColor="@color/primary_text_color" />
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+</androidx.wear.widget.BoxInsetLayout>
