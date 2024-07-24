@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    card_view:cardCornerRadius="8dp"
+    card_view:cardElevation="4dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/labelNombreCliente"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nombre Cliente:"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvNombreCliente"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/labelNombreCliente"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/labelProducto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Producto:"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvNombreCliente"
+            android:layout_marginTop="8dp" />
+
+        <TextView
+            android:id="@+id/tvProducto"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/labelProducto"
+            app:layout_constraintTop_toBottomOf="@id/tvNombreCliente"
+            android:layout_marginTop="8dp" />
+
+        <TextView
+            android:id="@+id/labelFechaEnvio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fecha Envío:"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvProducto"
+            android:layout_marginTop="8dp" />
+
+        <TextView
+            android:id="@+id/tvFechaEnvio"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/labelFechaEnvio"
+            app:layout_constraintTop_toBottomOf="@id/tvProducto"
+            android:layout_marginTop="8dp" />
+
+        <TextView
+            android:id="@+id/labelNombrePaqueteria"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nombre Paqueteria:"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvFechaEnvio"
+            android:layout_marginTop="4dp" />
+
+        <TextView
+            android:id="@+id/tvNombrePaqueteria"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/labelNombrePaqueteria"
+            app:layout_constraintTop_toBottomOf="@id/tvFechaEnvio"
+            android:layout_marginTop="4dp" />
+
+        <TextView
+            android:id="@+id/labelDomicilio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Domicilio:"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvNombrePaqueteria"
+            android:layout_marginTop="4dp" />
+
+        <TextView
+            android:id="@+id/tvDomicilio"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/labelDomicilio"
+            app:layout_constraintTop_toBottomOf="@id/tvNombrePaqueteria"
+            android:layout_marginTop="4dp" />
+
+        <TextView
+            android:id="@+id/labelTotal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total:"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvDomicilio"
+            android:layout_marginTop="4dp" />
+
+        <TextView
+            android:id="@+id/tvTotal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/labelTotal"
+            app:layout_constraintTop_toBottomOf="@id/tvDomicilio"
+            android:layout_marginTop="4dp" />
+
+        <TextView
+            android:id="@+id/labelEstatusEnvio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Estatus Envío:"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvTotal"
+            android:layout_marginTop="4dp" />
+
+        <TextView
+            android:id="@+id/tvEstatusEnvio"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/labelEstatusEnvio"
+            app:layout_constraintTop_toBottomOf="@id/tvTotal"
+            android:layout_marginTop="4dp" />
+
+        <Button
+            android:id="@+id/btnActualizarEstatus"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Actualizar Estatus"
+            android:backgroundTint="#F88B2B"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvEstatusEnvio"
+            android:layout_marginTop="16dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
