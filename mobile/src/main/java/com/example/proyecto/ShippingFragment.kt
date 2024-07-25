@@ -62,7 +62,7 @@ class ShippingFragment : Fragment() {
                         tvFechaEnvio.text = envio.fechaEnvio
                         tvNombrePaqueteria.text = envio.nombrePaqueteria
                         tvDomicilio.text = envio.domicilio
-                        tvTotal.text = envio.total
+                        tvTotal.text = envio.total.toString()
                         tvEstatusEnvio.text = envio.estatusEnvio
 
                         // Establecer el idEnvio en el botón usando la propiedad tag

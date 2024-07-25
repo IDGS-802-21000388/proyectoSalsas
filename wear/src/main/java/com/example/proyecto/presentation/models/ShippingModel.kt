@@ -1,4 +1,4 @@
-package com.example.proyecto.models
+package com.example.proyecto.presentation.models
 
 data class ShippingModel(
     val idEnvio: Int,

@@ -16,8 +16,8 @@
 
         <TextView
             android:id="@+id/labelNombreCliente"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="130dp"
+            android:layout_height="20dp"
             android:text="Nombre Cliente:"
             android:textSize="14sp"
             android:textStyle="bold"
@@ -36,8 +36,8 @@
 
         <TextView
             android:id="@+id/labelProducto"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="130dp"
+            android:layout_height="20dp"
             android:text="Producto:"
             android:textSize="14sp"
             android:textStyle="bold"
@@ -58,8 +58,8 @@
 
         <TextView
             android:id="@+id/labelFechaEnvio"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="130dp"
+            android:layout_height="20dp"
             android:text="Fecha Envío:"
             android:textSize="14sp"
             android:textStyle="bold"
@@ -80,8 +80,8 @@
 
         <TextView
             android:id="@+id/labelNombrePaqueteria"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="130dp"
+            android:layout_height="20dp"
             android:text="Nombre Paqueteria:"
             android:textSize="14sp"
             android:textStyle="bold"
@@ -102,8 +102,8 @@
 
         <TextView
             android:id="@+id/labelDomicilio"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="130dp"
+            android:layout_height="20dp"
             android:text="Domicilio:"
             android:textSize="14sp"
             android:textStyle="bold"
@@ -124,8 +124,8 @@
 
         <TextView
             android:id="@+id/labelTotal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="130dp"
+            android:layout_height="20dp"
             android:text="Total:"
             android:textSize="14sp"
             android:textStyle="bold"
@@ -146,8 +146,8 @@
 
         <TextView
             android:id="@+id/labelEstatusEnvio"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="130dp"
+            android:layout_height="20dp"
             android:text="Estatus Envío:"
             android:textSize="14sp"
             android:textStyle="bold"
@@ -171,7 +171,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="Actualizar Estatus"
-            android:backgroundTint="#F88B2B"
+            android:backgroundTint="#217765"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

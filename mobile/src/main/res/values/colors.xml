@@ -9,5 +9,8 @@
     <color name="divider_color">#cccccc</color>
     <color name="button_color">#6200EE</color>
     <color name="primary_color">#217765</color>
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">#e4007c</color>
 
 </resources>

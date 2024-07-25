@@ -10,5 +10,12 @@ data class Usuario(
     val estatus: Int,
     val telefono: String,
     val intentos: Int,
-    val dateLastToken: String
+    val idDireccion: Int,
+    val dateLastToken: String,
+    val direccion: Any?
+)
+
+data class LoginResponse(
+    val message: String,
+    val user: Usuario
 )

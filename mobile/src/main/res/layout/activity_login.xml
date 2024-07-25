@@ -26,6 +26,7 @@
         android:layout_marginTop="20dp"
         app:layout_constraintTop_toBottomOf="@id/circleImageView"
         app:layout_constraintLeft_toLeftOf="parent"
+        android:textColor="#e4007c"
         app:layout_constraintRight_toRightOf="parent" />
 
     <com.google.android.material.textfield.TextInputLayout
@@ -35,6 +36,10 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="24dp"
+        app:boxStrokeColor="#e4007c"
+        app:hintTextColor="@color/colorAccent"
+        app:hintEnabled="true"
+        app:hintAnimationEnabled="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/txtBienvenida">
@@ -52,6 +57,10 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="24dp"
+        app:boxStrokeColor="#e4007c"
+        app:hintTextColor="@color/colorAccent"
+        app:hintEnabled="true"
+        app:hintAnimationEnabled="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/emailInputLayout">
@@ -71,7 +80,7 @@
         android:layout_marginTop="24dp"
         android:layout_marginEnd="24dp"
         android:text="Iniciar sesión"
-        android:backgroundTint="#F88B2B"
+        android:backgroundTint="#217765"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/contrasenaInputLayout" />
@@ -84,7 +93,7 @@
         android:layout_marginTop="24dp"
         android:layout_marginEnd="24dp"
         android:text="Registrarme"
-        android:backgroundTint="#F88B2B"
+        android:backgroundTint="#217765"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/loginButton" />
