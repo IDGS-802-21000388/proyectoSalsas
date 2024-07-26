@@ -5,6 +5,7 @@ import com.example.proyecto.models.SolicitudProduccion
 import com.example.proyecto.models.PasoReceta
 import com.example.proyecto.models.RegistroModel
 import com.example.proyecto.models.ShippingModel
+import com.example.proyecto.models.Usuario
 import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.http.Body
@@ -16,6 +17,12 @@ import retrofit2.http.Path
 interface AuthApiService {
     @GET("api/SolicitudesProduccion/{id}")
     fun getSolicitudProduccion(@Path("id") id: Int): Call<SolicitudProduccion>
+
+    @GET("api/SolicitudesProduccion")
+    fun getSolicitudProduccionAll(): Call<List<SolicitudProduccion>>
+
+    @GET("api/Usuarios")
+    fun getUsuarios(): Call<List<Usuario>>
 
     @GET("api/PasoReceta/producto/{idProducto}")
     fun getPasosReceta(@Path("idProducto") idProducto: Int): Call<List<PasoReceta>>

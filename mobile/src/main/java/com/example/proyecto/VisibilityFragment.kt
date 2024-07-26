@@ -59,7 +59,7 @@ class VisibilityFragment : Fragment() {
 
                         // Actualizar las vistas con los datos de la solicitud
                         orderTitle.text = "Pedido de ${it.nombreCliente}"
-                        customerName.text = it.detalleSolicituds.firstOrNull()?.nombreUsuario ?: "Desconocido"
+                        customerName.text = it.detalleSolicituds?.firstOrNull()?.nombreUsuario ?: "Desconocido"
                         orderDetails.text = "${it.cantidadProduccion} Litros de ${it.nombreProducto}"
 
                         // Actualizar el estado del punto de progreso
