@@ -47,17 +47,17 @@ class ShippingActivity : AppCompatActivity() {
     }
 
     private fun loadShippingData() {
-        RetrofitClient.instance.getEnvio().enqueue(object : Callback<ShippingModel> {
-            override fun onResponse(call: Call<ShippingModel>, response: Response<ShippingModel>) {
+        RetrofitClient.instance.getEnvio().enqueue(object : Callback<List<ShippingModel>> {
+            override fun onResponse(call: Call<List<ShippingModel>>, response: Response<List<ShippingModel>>) {
                 if (response.isSuccessful) {
-                    val shippingModel = response.body()
-                    shippingModel?.let {
-                        tvNombreCliente.text = it.nombreCliente
-                        tvProducto.text = it.nombreProducto
-                        tvEstatusEnvio.text = it.estatusEnvio
-                        btnActualizarEstatus.tag = it.idEnvio
+                    val shippingList = response.body()
+                    shippingList?.forEach { shippingModel ->
+                        tvNombreCliente.text = shippingModel.nombreCliente
+                        tvProducto.text = shippingModel.nombreProducto
+                        tvEstatusEnvio.text = shippingModel.estatusEnvio
+                        btnActualizarEstatus.tag = shippingModel.idEnvio
 
-                        if (it.estatusEnvio.equals("entregado", ignoreCase = true)) {
+                        if (shippingModel.estatusEnvio.equals("entregado", ignoreCase = true)) {
                             cardLayout.setBackgroundColor(ContextCompat.getColor(this@ShippingActivity, R.color.secondary_text_color))
                             labelNombreCliente.setTextColor(ContextCompat.getColor(this@ShippingActivity, android.R.color.black))
                             labelProducto.setTextColor(ContextCompat.getColor(this@ShippingActivity, android.R.color.black))
@@ -73,7 +73,7 @@ class ShippingActivity : AppCompatActivity() {
                 }
             }
 
-            override fun onFailure(call: Call<ShippingModel>, t: Throwable) {
+            override fun onFailure(call: Call<List<ShippingModel>>, t: Throwable) {
                 Toast.makeText(this@ShippingActivity, "Error al cargar los datos", Toast.LENGTH_SHORT).show()
             }
         })

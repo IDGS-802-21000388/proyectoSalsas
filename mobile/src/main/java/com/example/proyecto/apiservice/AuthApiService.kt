@@ -40,7 +40,7 @@ interface AuthApiService {
     fun postRegistrar(@Body params: RegistroModel): Call<ResponseBody>
 
     @GET("api/Shipping/getShippingApi")
-    fun getEnvio(): Call<ShippingModel>
+    fun getEnvio(): Call<List<ShippingModel>>
 
     @PUT("api/Shipping/updateStatus/{id}")
     fun updateStatus(@Path("id") id: Int, @Body status: Map<String, String>): Call<ResponseBody>

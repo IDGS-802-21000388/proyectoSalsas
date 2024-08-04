@@ -2,7 +2,7 @@ package com.example.proyecto.models
 
 data class ShippingModel(
     val idEnvio: Int,
-    val estatusPedido: Int,
+    val estatusPedido: String,
     val fechaEnvio: String,
     val fechaEntregaEstimada: String,
     val estatusEnvio: String,
