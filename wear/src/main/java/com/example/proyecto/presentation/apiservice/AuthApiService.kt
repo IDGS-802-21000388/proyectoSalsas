@@ -36,7 +36,7 @@ interface AuthApiService {
     fun postLogin(@Body params: LoginModel): Call<ResponseBody>
 
     @GET("api/Shipping/getShippingApi")
-    fun getEnvio(): Call<ShippingModel>
+    fun getEnvio(): Call<List<ShippingModel>>
 
     @PUT("api/Shipping/updateStatus/{id}")
     fun updateStatus(@Path("id") id: Int, @Body status: Map<String, String>): Call<ResponseBody>

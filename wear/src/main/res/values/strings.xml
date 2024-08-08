@@ -5,4 +5,7 @@
     values-round/strings.xml for round devices.
     -->
     <string name="hello_world">From the Square world,\nHello, %1$s!</string>
+    <string name="pedido_detalles">Pedido Detalles</string>
+    <string name="production">Producción</string>
+    <string name="shipping">Envío</string>
 </resources>

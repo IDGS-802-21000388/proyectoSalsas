@@ -60,14 +60,9 @@ class LoginActivity : AppCompatActivity() {
                     val usuario = loginResponse.user
 
                     Toast.makeText(contexto, "Bienvenido ${usuario.nombreUsuario}", Toast.LENGTH_SHORT).show()
+                    val intent = Intent(contexto, NavBarActivity::class.java)
+                    startActivity(intent)
 
-                    when (usuario.rol.toLowerCase()) {
-                        "admin" -> navigateToAdminActivity()
-                        "repartidor" -> navigateToRepartidorActivity()
-                        "produccion" -> navigateToProduccionActivity()
-                        "cliente" -> navigateToAssigmentFragment()
-                        else -> Toast.makeText(contexto, "Rol desconocido", Toast.LENGTH_SHORT).show()
-                    }
                 } else {
                     Toast.makeText(contexto, "${response.errorBody()?.string()}", Toast.LENGTH_SHORT).show()
                 }
@@ -79,20 +74,6 @@ class LoginActivity : AppCompatActivity() {
         })
     }
 
-    private fun navigateToAdminActivity() {
-        val intent = Intent(this, PedidoDetalles::class.java)
-        startActivity(intent)
-    }
-
-    private fun navigateToRepartidorActivity() {
-        val intent = Intent(this, ShippingActivity::class.java)
-        startActivity(intent)
-    }
-
-    private fun navigateToProduccionActivity() {
-        val intent = Intent(this, ProductionActivity::class.java)
-        startActivity(intent)
-    }
 
     private fun navigateToAssigmentFragment(){
         val intent = Intent(this, AssigmentFragment::class.java)

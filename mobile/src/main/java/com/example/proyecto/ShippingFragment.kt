@@ -16,6 +16,7 @@ import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import android.util.Log
 
 class ShippingFragment : Fragment() {
 
@@ -38,11 +39,13 @@ class ShippingFragment : Fragment() {
         container.removeAllViews()
 
         // Llamada a la API para obtener el envío
-        RetrofitClient.instance.getEnvio().enqueue(object : Callback<ShippingModel> {
-            override fun onResponse(call: Call<ShippingModel>, response: Response<ShippingModel>) {
+        RetrofitClient.instance.getEnvio().enqueue(object : Callback<List<ShippingModel>> {
+            override fun onResponse(call: Call<List<ShippingModel>>, response: Response<List<ShippingModel>>) {
                 if (response.isSuccessful) {
-                    val envio = response.body()
-                    envio?.let {
+                    val envioList = response.body()
+                    envioList?.forEach { envio ->
+                        Log.i("TAG", envio.toString())
+
                         // Inflar el layout del CardView
                         val cardView = layoutInflater.inflate(R.layout.item_shipping, container, false) as CardView
 
@@ -84,15 +87,16 @@ class ShippingFragment : Fragment() {
                         container.addView(cardView)
                     }
                 } else {
-                    Toast.makeText(context, "Error al obtener el envío", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, "Error al obtener los envíos", Toast.LENGTH_SHORT).show()
                 }
             }
 
-            override fun onFailure(call: Call<ShippingModel>, t: Throwable) {
+            override fun onFailure(call: Call<List<ShippingModel>>, t: Throwable) {
                 // Manejar el error
-                Toast.makeText(context, "Error al obtener el envío", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "Error 500 al obtener los envíos", Toast.LENGTH_SHORT).show()
             }
         })
+
     }
 
     private fun actualizarEstatusEntrega(idEnvio: Int, estatus: String) {

@@ -15,10 +15,15 @@
         android:supportsRtl="true"
         android:theme="@android:style/Theme.DeviceDefault">
         <activity
-            android:name=".presentation.ShippingActivity"
-            android:taskAffinity=""
+            android:name=".presentation.NavBarActivity"
             android:exported="true"
-            android:theme="@style/AppTheme"/>
+            android:taskAffinity=""
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".presentation.ShippingActivity"
+            android:exported="true"
+            android:taskAffinity=""
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".presentation.LoginActivity"
             android:exported="true"
@@ -46,12 +51,12 @@
             android:name=".presentation.ProductionActivity"
             android:exported="true"
             android:taskAffinity=""
-            android:theme="@style/AppTheme"/>
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".PedidoDetalles"
             android:exported="true"
             android:taskAffinity=""
-            android:theme="@style/AppTheme"/>
+            android:theme="@style/AppTheme" />
     </application>
 
 </manifest>
