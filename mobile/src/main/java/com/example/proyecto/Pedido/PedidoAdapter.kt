@@ -6,7 +6,6 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.proyecto.models.SolicitudProduccion
-import com.example.proyecto.models.Usuario
 
 class PedidoAdapter(
     private val solicitudes: List<SolicitudProduccion>,
@@ -47,7 +46,7 @@ class PedidoAdapter(
             )
 
             // Mostrar el nombre del asignado o "Asignar a" si no está asignado
-            txtCliente.text = solicitud.nombreAsignado ?: "Asignar a"
+            txtAsignarA.text = solicitud.nombreAsignado ?: "Asignar a"
 
             itemView.setOnClickListener {
                 itemClickListener.onItemClick(solicitud)

@@ -65,6 +65,7 @@ class LoginActivity : AppCompatActivity() {
                         "admin" -> navigateToAdminActivity()
                         "repartidor" -> navigateToRepartidorActivity()
                         "produccion" -> navigateToProduccionActivity()
+                        "cliente" -> navigateToAssigmentFragment()
                         else -> Toast.makeText(contexto, "Rol desconocido", Toast.LENGTH_SHORT).show()
                     }
                 } else {
@@ -90,6 +91,11 @@ class LoginActivity : AppCompatActivity() {
 
     private fun navigateToProduccionActivity() {
         val intent = Intent(this, ProductionActivity::class.java)
+        startActivity(intent)
+    }
+
+    private fun navigateToAssigmentFragment(){
+        val intent = Intent(this, AssigmentFragment::class.java)
         startActivity(intent)
     }
 

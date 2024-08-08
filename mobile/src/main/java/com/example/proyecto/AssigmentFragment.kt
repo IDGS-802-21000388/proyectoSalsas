@@ -25,7 +25,7 @@ class AssigmentFragment : Fragment(), PedidoAdapter.OnItemClickListener {
     private val usuarios = mutableListOf<Usuario>()
     private val nombresClientes = mutableListOf<String>()
     private var idUsuarioSeleccionado: Int? = null
-    private var solicitudId: Int? = null // Declarar la variable para almacenar el idSolicitud
+    private var solicitudId: Int? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -40,7 +40,7 @@ class AssigmentFragment : Fragment(), PedidoAdapter.OnItemClickListener {
         pedidoAdapter = PedidoAdapter(solicitudes, this)
         recyclerView.adapter = pedidoAdapter
 
-        fetchSolicitudes()
+        // Primero, obtener los usuarios
         fetchUsuarios()
 
         return view
@@ -55,8 +55,8 @@ class AssigmentFragment : Fragment(), PedidoAdapter.OnItemClickListener {
                     val solicitudesList = response.body() ?: emptyList()
                     solicitudesList.forEachIndexed { index, solicitud ->
                         // Asignar el nombre del cliente según el índice
-                        val nombreCliente = if (index < nombresClientes.size) nombresClientes[index] else null
-                        solicitudes.add(solicitud.copy(nombreAsignado = nombreCliente))
+                        val nombreCliente = if (index < nombresClientes.size) nombresClientes[index] else "Cliente Desconocido"
+                        solicitudes.add(solicitud.copy(nombreCliente = nombreCliente))
 
                         // Guardar el idSolicitud de la primera solicitud (o cualquier otra condición que prefieras)
                         if (index == 0) {
@@ -87,9 +87,12 @@ class AssigmentFragment : Fragment(), PedidoAdapter.OnItemClickListener {
                 if (response.isSuccessful) {
                     usuarios.clear()
                     usuarios.addAll(response.body() ?: emptyList())
-                    val clientes = usuarios.filter { it.rol == "Cliente" }
+                    val clientes = usuarios.filter { it.rol == "cliente" }
                     nombresClientes.clear()
                     nombresClientes.addAll(clientes.map { it.nombre })
+
+                    // Después de obtener los usuarios, obtener las solicitudes
+                    fetchSolicitudes()
                 } else {
                     Toast.makeText(requireContext(), "Error al obtener usuarios", Toast.LENGTH_SHORT).show()
                 }
@@ -101,25 +104,14 @@ class AssigmentFragment : Fragment(), PedidoAdapter.OnItemClickListener {
         })
     }
 
-    fun obtenerIdSolicitud(solicitudes: List<SolicitudProduccion>): Int? {
-        // Verifica si la lista de solicitudes no está vacía
-        return if (solicitudes.isNotEmpty()) {
-            // Devuelve el idSolicitud de la primera solicitud en la lista
-            solicitudes[0].idSolicitud
-        } else {
-            // Devuelve null si la lista está vacía
-            null
-        }
-    }
-
     override fun onItemClick(solicitud: SolicitudProduccion) {
-        val clientes = usuarios.filter { it.rol != "Cliente" }
-        val nombresClientes = clientes.map { it.nombre }
+        val empleados = usuarios.filter { it.rol != "cliente" }
+        val nombresEmpleados = empleados.map { it.nombre }
 
         AlertDialog.Builder(requireContext())
             .setTitle("Asignar a")
-            .setItems(nombresClientes.toTypedArray()) { _, which ->
-                val usuarioSeleccionado = clientes[which]
+            .setItems(nombresEmpleados.toTypedArray()) { _, which ->
+                val usuarioSeleccionado = empleados[which]
                 idUsuarioSeleccionado = usuarioSeleccionado.idUsuario
 
                 val index = solicitudes.indexOf(solicitud)

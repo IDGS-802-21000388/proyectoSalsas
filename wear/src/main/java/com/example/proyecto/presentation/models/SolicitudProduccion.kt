@@ -9,5 +9,7 @@ data class SolicitudProduccion(
     val nombreProducto: String,
     val idUsuario: Int,
     val nombreCliente: String,
-    val detalleSolicituds: List<DetalleSolicitud>
+    val detalleSolicituds: List<DetalleSolicitud>,
+    var nombreAsignado: String? = null
+
 )
