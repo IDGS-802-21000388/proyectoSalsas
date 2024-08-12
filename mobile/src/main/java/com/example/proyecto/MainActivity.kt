@@ -1,5 +1,6 @@
 package com.example.proyecto
 
+import ProduccionFragment
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -57,6 +58,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             }
             R.id.nav_shipping -> {
                 supportFragmentManager.beginTransaction().replace(R.id.fragment_container, ShippingFragment()).commit()
+            }
+            R.id.nav_production -> {
+                supportFragmentManager.beginTransaction().replace(R.id.fragment_container, ProduccionFragment()).commit()
             }
             R.id.nav_logout -> {
                 logout()

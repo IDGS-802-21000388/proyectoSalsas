@@ -27,6 +27,10 @@
             android:id="@+id/nav_shipping"
             android:icon="@drawable/nav_shipping"
             android:title="Shipping"/>
+        <item
+            android:id="@+id/nav_production"
+            android:icon="@drawable/nav_shipping"
+            android:title="Production"/>
     </group>
 
     <item

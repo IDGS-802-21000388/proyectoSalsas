@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="7dp"
+    app:cardElevation="10dp"
+    app:cardCornerRadius="12dp"
+    app:cardBackgroundColor="#f7f5f2"
+    app:contentPaddingTop="10dp"
+    android:padding="16dp">
+
+<RelativeLayout
+android:layout_width="match_parent"
+android:layout_height="wrap_content">
+
+<TextView
+    android:paddingTop="5dp"
+    android:paddingLeft="5dp"
+    android:id="@+id/tituloClienteTextView"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Cliente:"
+    android:textStyle="bold"
+    android:textSize="16sp"
+    android:textColor="#c31a23" />
+
+<TextView
+    android:paddingTop="5dp"
+    android:paddingLeft="5dp"
+    android:id="@+id/clienteTextView"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_toEndOf="@id/tituloClienteTextView"
+    android:layout_alignBaseline="@id/tituloClienteTextView"
+    android:text="Nombre Cliente"
+    android:textSize="16sp"
+    android:textColor="#000" /> <!-- Updated text color -->
+
+<TextView
+    android:paddingTop="5dp"
+    android:paddingLeft="5dp"
+    android:id="@+id/fechaTextView"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/tituloClienteTextView"
+    android:layout_marginTop="8dp"
+    android:text="Fecha"
+    android:textSize="14sp"
+    android:textColor="#000" /> <!-- Updated text color -->
+
+<TextView
+    android:paddingTop="5dp"
+    android:paddingLeft="5dp"
+    android:paddingBottom="10dp"
+    android:id="@+id/tituloAsignarTextView"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/fechaTextView"
+    android:layout_marginTop="8dp"
+    android:text="Asignado a:"
+    android:textSize="14sp"
+    android:textColor="#000" /> <!-- Updated text color -->
+
+<TextView
+    android:paddingTop="5dp"
+    android:paddingLeft="5dp"
+    android:paddingBottom="10dp"
+    android:id="@+id/asignarATextView"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_toEndOf="@id/tituloAsignarTextView"
+    android:layout_alignBaseline="@id/tituloAsignarTextView"
+    android:text="Nombre Empleado"
+    android:textSize="14sp"
+    android:textColor="#000" /> <!-- Updated text color -->
+
+<TextView
+    android:paddingTop="5dp"
+    android:paddingRight="10dp"
+    android:id="@+id/estatusTextView"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentEnd="true"
+    android:text="Estatus"
+    android:textSize="14sp"
+    android:textColor="#e4007c" /> <!-- Updated text color -->
+
+<View
+    android:layout_marginHorizontal="30dp"
+    android:id="@+id/estatusIndicator"
+    android:layout_width="20dp"
+    android:layout_height="20dp"
+    android:layout_alignParentEnd="true"
+    android:layout_below="@id/estatusTextView"
+    android:layout_marginTop="15dp"
+    android:background="@drawable/circle_pending" /> <!-- Assuming this drawable is color-neutral -->
+</RelativeLayout>
+
+    </com.google.android.material.card.MaterialCardView>

@@ -3,6 +3,7 @@ package com.example.proyecto.apiservice
 import com.example.proyecto.models.LoginModel
 import com.example.proyecto.models.SolicitudProduccion
 import com.example.proyecto.models.PasoReceta
+import com.example.proyecto.models.Pedido
 import com.example.proyecto.models.RegistroModel
 import com.example.proyecto.models.ShippingModel
 import com.example.proyecto.models.Usuario
@@ -44,5 +45,11 @@ interface AuthApiService {
 
     @PUT("api/Shipping/updateStatus/{id}")
     fun updateStatus(@Path("id") id: Int, @Body status: Map<String, String>): Call<ResponseBody>
+
+    @GET("api/Produccion/Pedidos/{idUsuario}")
+    fun obtenerPedidos(@Path("idUsuario") idUsuario: Int): Call<List<Pedido>>
+
+    @PUT("api/SolicitudesProduccion/venta/{idVenta}/estatus")
+    fun updateEnvioEstatus(@Path("idVenta") idVenta: Int, @Body nuevoEstatus: String): Call<Void>
 
 }
