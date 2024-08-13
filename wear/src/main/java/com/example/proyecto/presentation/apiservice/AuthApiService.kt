@@ -1,9 +1,10 @@
 package com.example.proyecto.apiservice
 
 import com.example.proyecto.models.SolicitudProduccion
-import com.example.proyecto.models.PasoReceta
 import com.example.proyecto.models.Usuario
 import com.example.proyecto.presentation.models.LoginModel
+import com.example.proyecto.presentation.models.PasoReceta
+import com.example.proyecto.presentation.models.Pedido
 import com.example.proyecto.presentation.models.ShippingModel
 import okhttp3.ResponseBody
 import retrofit2.Call
@@ -40,4 +41,11 @@ interface AuthApiService {
 
     @PUT("api/Shipping/updateStatus/{id}")
     fun updateStatus(@Path("id") id: Int, @Body status: Map<String, String>): Call<ResponseBody>
+
+    @GET("api/Produccion/Pedidos/{idUsuario}")
+    fun obtenerPedidos(@Path("idUsuario") idUsuario: Int): Call<List<Pedido>>
+
+    @PUT("api/SolicitudesProduccion/venta/{idVenta}/estatus")
+    fun updateEnvioEstatus(@Path("idVenta") idVenta: Int, @Body nuevoEstatus: String): Call<Void>
+
 }

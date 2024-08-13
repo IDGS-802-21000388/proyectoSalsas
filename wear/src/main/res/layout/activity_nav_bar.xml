@@ -86,6 +86,28 @@
                 android:text="@string/shipping" />
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:onClick="openShippingActivity"
+            android:orientation="horizontal"
+            android:padding="8dp">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:contentDescription="@string/shipping"
+                android:src="@drawable/ic_shipping" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#217765"
+                android:paddingStart="8dp"
+                android:text="Produccion" />
+        </LinearLayout>
+
     </LinearLayout>
 
     <TextView

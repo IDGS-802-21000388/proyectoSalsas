@@ -61,6 +61,14 @@ class LoginActivity : AppCompatActivity() {
                     val gson = Gson()
                     val loginResponse = gson.fromJson(stringJson, LoginResponse::class.java)
                     val usuario = loginResponse.user
+
+                    // Guardar el idUsuario en las SharedPreferences
+                    val sharedPref = getSharedPreferences("miAppPref", Context.MODE_PRIVATE)
+                    with(sharedPref.edit()) {
+                        putInt("idUsuario", usuario.idUsuario)
+                        apply()
+                    }
+
                     Toast.makeText(contexto, "Bienvenido ${usuario.nombreUsuario}", Toast.LENGTH_SHORT).show()
                     val intent = Intent(contexto, MainActivity::class.java)
                     startActivity(intent)

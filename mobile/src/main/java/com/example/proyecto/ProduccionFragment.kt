@@ -1,3 +1,4 @@
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -29,6 +30,9 @@ class ProduccionFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_produccion, container, false)
+        // Recuperar el idUsuario de las SharedPreferences
+        val sharedPref = requireContext().getSharedPreferences("miAppPref", Context.MODE_PRIVATE)
+        val idUsuario = sharedPref.getInt("idUsuario", -1)
 
         pedidosRecyclerView = view.findViewById(R.id.pedidosRecyclerView)
         pedidosRecyclerView.layoutManager = LinearLayoutManager(context)
@@ -38,7 +42,7 @@ class ProduccionFragment : Fragment() {
             // Acciones al hacer clic en un pedido
             val fragment = RecipeFragment()
             val args = Bundle()
-            args.putParcelable("pedido", pedido)  // Asegúrate de que Pedido sea Parcelable
+            args.putParcelable("pedido", pedido)
             fragment.arguments = args
 
             parentFragmentManager.beginTransaction()
@@ -47,11 +51,10 @@ class ProduccionFragment : Fragment() {
                 .commit()
         }
 
-// Asignar el adaptador al RecyclerView
+        // Asignar el adaptador al RecyclerView
         pedidosRecyclerView.adapter = produccionAdapter
-
-// Hacer la solicitud a la API
-        obtenerPedidosDesdeAPI(idUsuario = 2) // o el id que necesites
+        // Hacer la solicitud a la API
+        obtenerPedidosDesdeAPI(idUsuario = idUsuario)
 
         return view
     }

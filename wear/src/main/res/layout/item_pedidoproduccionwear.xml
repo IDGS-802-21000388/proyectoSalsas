@@ -1,0 +1,61 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="8dp"
+    android:background="#FFFFFF"
+    android:layout_marginBottom="8dp">
+
+    <!-- Cliente -->
+    <TextView
+        android:id="@+id/clienteTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        android:text="Cliente: Usuario X"
+        android:textSize="16sp" />
+
+    <!-- Fecha -->
+    <TextView
+        android:id="@+id/fechaTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fecha: 00/00/0000"
+        android:textSize="14sp"
+        android:textColor="@android:color/black"
+        android:layout_marginTop="4dp"/>
+
+    <!-- Asignado a -->
+    <TextView
+        android:id="@+id/asignarATextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Asignado a: "
+        android:textSize="14sp"
+        android:textColor="@android:color/black"
+        android:layout_marginTop="4dp"/>
+
+    <!-- Estado y drawable -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="4dp">
+
+        <TextView
+            android:id="@+id/estatusTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pendiente"
+            android:textColor="#e4007c"
+            android:textSize="14sp"/>
+
+        <ImageView
+            android:id="@+id/estatusIndicator"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_marginStart="8dp"
+            android:src="@drawable/circle_pending" />
+    </LinearLayout>
+</LinearLayout>

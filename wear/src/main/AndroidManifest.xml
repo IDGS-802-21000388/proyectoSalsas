@@ -48,10 +48,17 @@
             android:value="true" />
 
         <activity
-            android:name=".presentation.ProductionActivity"
+            android:name=".presentation.ProductionWearActivity"
             android:exported="true"
             android:taskAffinity=""
             android:theme="@style/AppTheme" />
+
+        <activity
+            android:name=".presentation.PedidoPasosWearActivity"
+            android:exported="true"
+            android:taskAffinity=""
+            android:theme="@style/AppTheme" />
+
         <activity
             android:name=".PedidoDetalles"
             android:exported="true"

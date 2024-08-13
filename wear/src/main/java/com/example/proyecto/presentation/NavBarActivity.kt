@@ -20,7 +20,7 @@ class NavBarActivity : AppCompatActivity() {
     }
 
     fun openProductionActivity(view: android.view.View) {
-        val intent = Intent(this, ProductionActivity::class.java)
+        val intent = Intent(this, ProductionWearActivity::class.java)
         startActivity(intent)
     }
 
