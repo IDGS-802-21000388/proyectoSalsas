@@ -1,5 +1,6 @@
 package com.example.proyecto.apiservice
 
+import com.example.proyecto.models.DetalleSolicitud
 import com.example.proyecto.models.SolicitudProduccion
 import com.example.proyecto.models.Usuario
 import com.example.proyecto.presentation.models.LoginModel
@@ -20,6 +21,16 @@ interface AuthApiService {
 
     @GET("api/Usuarios")
     fun getUsuarios(): Call<List<Usuario>>
+
+
+    @POST("api/DetalleSolicitud")
+    fun postDetalleSolicitud(@Body params: DetalleSolicitud): Call<ResponseBody>
+
+    @PUT("api/DetalleSolicitud/{id}/usuario")
+    fun updateDetalleSolicitudUsuario(@Path("id") id: Int, @Body idUsuario: Int): Call<Void>
+
+    @GET("api/DetalleSolicitud")
+    fun getDetalle(): Call<List<DetalleSolicitud>>
 
     @GET("api/SolicitudesProduccion")
     fun getSolicitudProduccionAll(): Call<List<SolicitudProduccion>>
