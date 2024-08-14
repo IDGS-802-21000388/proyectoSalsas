@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:orientation="vertical"
+    android:background="@color/background_color"
+    tools:context=".MainActivity">
+
+    <!-- Title -->
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/order_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="Pedido de Aylin"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/title_color" />
+
+    <!-- Customer Name -->
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/customer_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Diego"
+        android:layout_marginTop="4dp"
+        android:textSize="18sp"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/secondary_text_color" />
+
+    <!-- Divider Line -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/divider_color" />
+
+    <!-- Order Details with Status -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="16dp">
+
+        <!-- Order Details -->
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/order_details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="10 Litros de salsa habanera"
+            android:textSize="18sp"
+            android:textColor="@color/primary_text_color" />
+
+        <!-- Progress Status Indicator -->
+        <ImageView
+            android:id="@+id/status_point"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/circle_pending"
+            android:layout_marginStart="20dp" />
+    </LinearLayout>
+
+    <!-- Timer with Icon -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="16dp">
+
+        <!-- Timer -->
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/timer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="8:39"
+            android:textSize="24sp"
+            android:textColor="@color/primary_text_color" />
+
+        <!-- Timer Icon -->
+        <ImageView
+            android:id="@+id/timer_icon"
+            android:layout_width="30dp"
+            android:layout_height="33dp"
+            android:src="@drawable/ic_timer"
+            android:layout_marginStart="8dp" />
+    </LinearLayout>
+
+    <!-- Divider Line -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/divider_color" />
+
+    <!-- Instructions Label -->
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Preparar los ingredientes:"
+        android:textSize="18sp"
+        android:textColor="@color/primary_text_color" />
+
+    <!-- Instructions inside CardView -->
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        app:cardElevation="4dp"
+        app:cardCornerRadius="8dp"
+        android:padding="16dp"
+        android:background="@color/white">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/instructions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Lava los chiles habaneros y retira los tallos.\nPela y corta la cebolla en trozos grandes.\nPela los dientes de ajo.\nPela y corta la zanahoria en rodajas."
+            android:textSize="18sp"
+            android:textColor="@color/primary_text_color" />
+    </com.google.android.material.card.MaterialCardView>
+
+
+
+</LinearLayout>

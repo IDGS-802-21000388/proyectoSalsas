@@ -1,0 +1,103 @@
+package com.example.proyecto
+
+import android.content.Context
+import android.content.Intent
+import android.os.Bundle
+import android.util.Log
+import android.widget.Button
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import com.example.proyecto.models.LoginModel
+import com.google.android.material.textfield.TextInputEditText
+import com.google.android.material.textfield.TextInputLayout
+import com.example.proyecto.apiservice.RetrofitClient
+import com.example.proyecto.models.LoginResponse
+import com.example.proyecto.models.Usuario
+import com.google.gson.Gson
+import okhttp3.ResponseBody
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+class LoginActivity : AppCompatActivity() {
+    lateinit var contexto: Context
+    lateinit var emailInputLayout: TextInputLayout
+    lateinit var emailInput: TextInputEditText
+    lateinit var contrasenaInputLayout: TextInputLayout
+    lateinit var contrasenaInput: TextInputEditText
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_login)
+        contexto = this
+        contrasenaInputLayout = findViewById<TextInputLayout>(R.id.contrasenaInputLayout)
+        contrasenaInput = findViewById<TextInputEditText>(R.id.contrasenaEditText)
+        emailInputLayout = findViewById<TextInputLayout>(R.id.emailInputLayout)
+        emailInput = findViewById<TextInputEditText>(R.id.emailEditText)
+        val emailParam = intent.getStringExtra("email")
+        if (emailParam != null) {
+            emailInput.setText(emailParam.toString())
+        }
+        val loginButton = findViewById<Button>(R.id.loginButton)
+        loginButton.setOnClickListener {
+            if (formValido()) {
+                val params = LoginModel(emailInput.text.toString(), contrasenaInput.text.toString())
+                login(params)
+            } else {
+                Toast.makeText(this, "Existe información incorrecta", Toast.LENGTH_SHORT).show()
+            }
+        }
+        val registrarButton = findViewById<Button>(R.id.registrarButton)
+        registrarButton.setOnClickListener {
+            val intent = Intent(this, RegistroActivity::class.java)
+            startActivity(intent)
+        }
+    }
+
+    fun login(parametros: LoginModel){
+        Toast.makeText(this, "Iniciando sesión", Toast.LENGTH_SHORT).show()
+        RetrofitClient.instance.postLogin(parametros).enqueue(object : Callback<ResponseBody> {
+            override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
+                if (response.isSuccessful) {
+                    var stringJson = response.body()?.string();
+                    val gson = Gson()
+                    val loginResponse = gson.fromJson(stringJson, LoginResponse::class.java)
+                    val usuario = loginResponse.user
+
+                    // Guardar el idUsuario en las SharedPreferences
+                    val sharedPref = getSharedPreferences("miAppPref", Context.MODE_PRIVATE)
+                    with(sharedPref.edit()) {
+                        putInt("idUsuario", usuario.idUsuario)
+                        putString("rol", usuario.rol)
+                        apply()
+                    }
+
+                    Toast.makeText(contexto, "Bienvenido ${usuario.nombreUsuario}", Toast.LENGTH_SHORT).show()
+                    val intent = Intent(contexto, MainActivity::class.java)
+                    startActivity(intent)
+                } else {
+                    Toast.makeText(contexto, "${response.errorBody()?.string()}", Toast.LENGTH_SHORT).show();
+                }
+            }
+            override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
+// Handle failure
+                Log.e("MainActivity", "Failure: ${t.message}")
+            }
+        })
+    }
+
+    fun formValido() : Boolean {
+        var valido = true
+        if(contrasenaInput.text.toString().isEmpty()){
+            contrasenaInputLayout.error = "Campo obligatorio"
+            valido = false
+        } else {
+            contrasenaInputLayout.error = ""
+        }
+        if(emailInput.text.toString().isEmpty()){
+            emailInputLayout.error = "Campo obligatorio"
+            valido = false
+        } else {
+            emailInputLayout.error = ""
+        }
+        return valido
+    }
+}

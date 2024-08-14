@@ -26,6 +26,7 @@ class ProductionActivity : AppCompatActivity() {
 
     private var currentStep = 0
     private var steps: List<PasoReceta> = listOf()
+    private var solicitudes: List<SolicitudProduccion> = listOf()
     private var detalleSolicitudId: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -56,11 +57,11 @@ class ProductionActivity : AppCompatActivity() {
 
                         // Actualizar las vistas con los datos de la solicitud
                         orderTitle.text = "Pedido de ${it.nombreCliente}"
-                        customerName.text = it.detalleSolicituds.firstOrNull()?.nombreUsuario ?: "Desconocido"
+                        customerName.text = it.detalleSolicituds?.firstOrNull()?.nombreUsuario ?: "Desconocido"
                         orderDetails.text = "${it.cantidadProduccion} Litros de ${it.nombreProducto}"
 
                         // Obtener el ID de detalleSolicitud para actualizar el paso
-                        detalleSolicitudId = it.detalleSolicituds.firstOrNull()?.idDetalleSolicitud ?: 0
+                        detalleSolicitudId = it.detalleSolicituds?.firstOrNull()?.idDetalleSolicitud ?: 0
 
                         // Actualizar el estado del punto de progreso
                         statusPoint.setImageResource(R.drawable.circle_in_progress)

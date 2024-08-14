@@ -9,8 +9,8 @@ import androidx.activity.ComponentActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.example.proyecto.R
 import com.example.proyecto.apiservice.RetrofitClient
-import com.example.proyecto.models.PasoReceta
 import com.example.proyecto.models.SolicitudProduccion
+import com.example.proyecto.presentation.models.PasoReceta
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

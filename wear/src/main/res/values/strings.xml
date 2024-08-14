@@ -1,8 +1,11 @@
 <resources>
-    <string name="app_name">proyecto</string>
+    <string name="app_name">Salsas Reni</string>
     <!--
     This string is used for square devices and overridden by hello_world in
     values-round/strings.xml for round devices.
     -->
     <string name="hello_world">From the Square world,\nHello, %1$s!</string>
+    <string name="pedido_detalles">Pedido Detalles</string>
+    <string name="production">Producción</string>
+    <string name="shipping">Envío</string>
 </resources>

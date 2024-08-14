@@ -1,0 +1,84 @@
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="@android:color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+
+        <!-- Título del Pedido -->
+        <TextView
+            android:id="@+id/orderTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pedido de Usuario 1"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:layout_marginBottom="8dp"
+            android:gravity="center_horizontal"/>
+
+        <!-- Nombre del Cliente -->
+        <TextView
+            android:id="@+id/customerName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Jorge Morales"
+            android:textColor="@android:color/darker_gray"
+            android:layout_marginBottom="4dp"
+            android:gravity="center_horizontal"/>
+
+        <!-- Contenedor para el producto y el drawable de estado -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <!-- Detalles del Pedido -->
+            <TextView
+                android:id="@+id/orderDetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3.0 Litros de Salsa Verde"
+                android:textColor="@android:color/darker_gray"
+                android:layout_marginRight="8dp"/>
+
+            <!-- Drawable de Estado -->
+            <ImageView
+                android:id="@+id/statusPoint"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/circle_pending" /> <!-- Cambia por el drawable que corresponda -->
+        </LinearLayout>
+
+        <!-- Instrucciones del Paso -->
+        <TextView
+            android:id="@+id/instructions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="1. Mezclar todos los ingredientes"
+            android:textColor="@android:color/black"
+            android:layout_marginTop="16dp"
+            android:padding="16dp"
+            android:background="@android:color/white"
+            android:gravity="center_horizontal" />
+
+        <!-- Botón de Siguiente/Finalizar -->
+        <Button
+            android:id="@+id/nextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Siguiente"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center_horizontal"
+            android:backgroundTint="#217765"
+            android:textColor="@android:color/white"
+            android:paddingHorizontal="10dp"/>
+    </LinearLayout>
+</ScrollView>

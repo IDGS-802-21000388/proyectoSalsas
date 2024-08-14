@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.wear.widget.BoxInsetLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="@color/background_color"
+    tools:context=".presentation.LoginActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/order_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Inicio de Sesión"
+            android:textSize="14sp"
+            android:layout_marginTop="10dp"
+            android:textStyle="bold"
+            android:textColor="#e4007c" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/emailInputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:hint="Usuario"
+            app:boxStrokeColor="#e4007c"
+            app:hintEnabled="true"
+            app:hintAnimationEnabled="true"
+            app:boxStrokeWidth="1dp"
+            app:boxBackgroundMode="outline">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/emailEditText"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:textColor="#000000"
+                android:inputType="textEmailAddress"
+                android:importantForAccessibility="yes" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/contrasenaInputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="Contraseña"
+            app:boxStrokeColor="#e4007c"
+            app:hintEnabled="true"
+            app:hintAnimationEnabled="true"
+            app:boxStrokeWidth="1dp"
+            app:boxBackgroundMode="outline">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/contrasenaEditText"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:textColor="#000000"
+                android:inputType="textPassword"
+                android:importantForAccessibility="yes" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/loginButton"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="24dp"
+            android:text="Iniciar sesión"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#217765"
+            android:contentDescription="Botón para iniciar sesión"
+            android:importantForAccessibility="yes" />
+    </LinearLayout>
+
+</androidx.wear.widget.BoxInsetLayout>
