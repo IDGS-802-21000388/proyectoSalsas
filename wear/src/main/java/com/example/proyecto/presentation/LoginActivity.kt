@@ -11,6 +11,7 @@ import com.example.proyecto.PedidoDetalles
 import com.example.proyecto.R
 import com.example.proyecto.apiservice.RetrofitClient
 import com.example.proyecto.models.LoginResponse
+import com.example.proyecto.models.Usuario
 import com.example.proyecto.presentation.models.LoginModel
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
@@ -48,7 +49,7 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-    private fun login(parametros: LoginModel) {
+    fun login(parametros: LoginModel) {
         Toast.makeText(this, "Iniciando sesión", Toast.LENGTH_SHORT).show()
         RetrofitClient.instance.postLogin(parametros).enqueue(object : Callback<ResponseBody> {
             override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
@@ -58,17 +59,18 @@ class LoginActivity : AppCompatActivity() {
                     val loginResponse = gson.fromJson(stringJson, LoginResponse::class.java)
                     val usuario = loginResponse.user
 
-                    // Guardar el idUsuario y el rol del usuario en las SharedPreferences
+                    // Guardar el idUsuario en las SharedPreferences
                     val sharedPref = getSharedPreferences("miAppPref", Context.MODE_PRIVATE)
                     with(sharedPref.edit()) {
                         putInt("idUsuario", usuario.idUsuario)
-                        putString("rol", usuario.rol)  // Guardar el rol del usuario
+                        putString("rol", usuario.rol)
                         apply()
                     }
 
                     Toast.makeText(contexto, "Bienvenido ${usuario.nombreUsuario}", Toast.LENGTH_SHORT).show()
                     val intent = Intent(contexto, NavBarActivity::class.java)
                     startActivity(intent)
+
                 } else {
                     Toast.makeText(contexto, "${response.errorBody()?.string()}", Toast.LENGTH_SHORT).show()
                 }
@@ -80,7 +82,13 @@ class LoginActivity : AppCompatActivity() {
         })
     }
 
-    private fun formValido(): Boolean {
+
+    private fun navigateToAssigmentFragment(){
+        val intent = Intent(this, AssigmentFragment::class.java)
+        startActivity(intent)
+    }
+
+    fun formValido(): Boolean {
         var valido = true
         if (emailInput.text.toString().isEmpty()) {
             emailInputLayout.error = "Campo obligatorio"
@@ -97,4 +105,3 @@ class LoginActivity : AppCompatActivity() {
         return valido
     }
 }
-

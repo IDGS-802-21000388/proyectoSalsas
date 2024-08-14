@@ -23,6 +23,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+        val sharedPref = getSharedPreferences("miAppPref", Context.MODE_PRIVATE)
+        val rol = sharedPref.getString("rol", "")
         setContentView(R.layout.activity_main)
         toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
@@ -43,24 +45,47 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
+        val sharedPref = getSharedPreferences("miAppPref", Context.MODE_PRIVATE)
+        val rol = sharedPref.getString("rol", "")
+
         when (item.itemId) {
             R.id.nav_home -> {
                 supportFragmentManager.beginTransaction().replace(R.id.fragment_container, HomeFragment()).commit()
             }
             R.id.nav_assigment -> {
-                supportFragmentManager.beginTransaction().replace(R.id.fragment_container, AssigmentFragment()).commit()
+                if (rol == "admin" || rol == "empleado") {
+                    supportFragmentManager.beginTransaction().replace(R.id.fragment_container, AssigmentFragment()).commit()
+                } else {
+                    Toast.makeText(this, "No tienes acceso a esta sección", Toast.LENGTH_SHORT).show()
+                }
             }
             R.id.nav_recipe -> {
-                supportFragmentManager.beginTransaction().replace(R.id.fragment_container, RecipeFragment()).commit()
+                if (rol == "admin" || rol == "empleado") {
+                    supportFragmentManager.beginTransaction().replace(R.id.fragment_container, RecipeFragment()).commit()
+                } else {
+                    Toast.makeText(this, "No tienes acceso a esta sección", Toast.LENGTH_SHORT).show()
+                }
             }
             R.id.nav_visibility -> {
-                supportFragmentManager.beginTransaction().replace(R.id.fragment_container, VisibilityFragment()).commit()
+                if (rol == "admin") {
+                    supportFragmentManager.beginTransaction().replace(R.id.fragment_container, VisibilityFragment()).commit()
+                } else {
+                    Toast.makeText(this, "No tienes acceso a esta sección", Toast.LENGTH_SHORT).show()
+                }
             }
             R.id.nav_shipping -> {
-                supportFragmentManager.beginTransaction().replace(R.id.fragment_container, ShippingFragment()).commit()
+                if (rol == "admin" || rol == "repartidor") {
+                    supportFragmentManager.beginTransaction().replace(R.id.fragment_container, ShippingFragment()).commit()
+                } else {
+                    Toast.makeText(this, "No tienes acceso a esta sección", Toast.LENGTH_SHORT).show()
+                }
             }
             R.id.nav_production -> {
-                supportFragmentManager.beginTransaction().replace(R.id.fragment_container, ProduccionFragment()).commit()
+                if (rol == "admin" || rol == "empleado") {
+                    supportFragmentManager.beginTransaction().replace(R.id.fragment_container, ProduccionFragment()).commit()
+                } else {
+                    Toast.makeText(this, "No tienes acceso a esta sección", Toast.LENGTH_SHORT).show()
+                }
             }
             R.id.nav_logout -> {
                 logout()
@@ -73,6 +98,11 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         drawerLayout.closeDrawer(GravityCompat.START)
         return true
     }
+
+    private fun showToast(message: String) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+    }
+
 
     override fun onBackPressed() {
         if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
