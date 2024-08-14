@@ -7,13 +7,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.proyecto.R
 import com.example.proyecto.apiservice.RetrofitClient
 import com.example.proyecto.models.SolicitudProduccion
-import com.example.proyecto.models.Usuario
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import android.app.AlertDialog
 import android.widget.Toast
 import com.example.proyecto.PedidoAdapter
+import com.example.proyecto.models.Usuario
 
 class AssigmentFragment : ComponentActivity(), PedidoAdapter.OnItemClickListener {
 

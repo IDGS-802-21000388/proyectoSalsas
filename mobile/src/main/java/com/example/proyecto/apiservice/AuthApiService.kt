@@ -49,6 +49,9 @@ interface AuthApiService {
     @GET("api/Produccion/Pedidos/{idUsuario}")
     fun obtenerPedidos(@Path("idUsuario") idUsuario: Int): Call<List<Pedido>>
 
+    @GET("api/Produccion/TodosLosPedidos")  // Nuevo método para obtener todos los pedidos
+    fun obtenerTodosLosPedidos(): Call<List<Pedido>>
+
     @PUT("api/SolicitudesProduccion/venta/{idVenta}/estatus")
     fun updateEnvioEstatus(@Path("idVenta") idVenta: Int, @Body nuevoEstatus: String): Call<Void>
 

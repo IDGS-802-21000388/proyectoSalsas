@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.proyecto.ProduccionAdapter
 import com.example.proyecto.R
 import com.example.proyecto.RecipeFragment
+import com.example.proyecto.VisibilityFragment
 import com.example.proyecto.apiservice.AuthApiService
 import com.example.proyecto.apiservice.RetrofitClient
 import com.example.proyecto.models.Pedido
@@ -30,9 +31,11 @@ class ProduccionFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_produccion, container, false)
-        // Recuperar el idUsuario de las SharedPreferences
+
+        // Recuperar el idUsuario y rol del usuario desde las SharedPreferences
         val sharedPref = requireContext().getSharedPreferences("miAppPref", Context.MODE_PRIVATE)
         val idUsuario = sharedPref.getInt("idUsuario", -1)
+        val rolUsuario = sharedPref.getString("rolUsuario", "")
 
         pedidosRecyclerView = view.findViewById(R.id.pedidosRecyclerView)
         pedidosRecyclerView.layoutManager = LinearLayoutManager(context)
@@ -40,7 +43,15 @@ class ProduccionFragment : Fragment() {
         // Instanciar el adaptador pasando una lista vacía y la función de clic
         produccionAdapter = ProduccionAdapter(requireContext(), emptyList()) { pedido ->
             // Acciones al hacer clic en un pedido
-            val fragment = RecipeFragment()
+            val fragment = if (rolUsuario == "admin") {
+                // Si el usuario es admin, redirigir a un fragmento diferente
+                VisibilityFragment()
+            } else {
+                // Si el usuario no es admin, redirigir al RecipeFragment
+                RecipeFragment()
+            }
+
+            // Pasar el pedido al fragmento destino
             val args = Bundle()
             args.putParcelable("pedido", pedido)
             fragment.arguments = args
@@ -53,12 +64,40 @@ class ProduccionFragment : Fragment() {
 
         // Asignar el adaptador al RecyclerView
         pedidosRecyclerView.adapter = produccionAdapter
-        // Hacer la solicitud a la API
-        obtenerPedidosDesdeAPI(idUsuario = idUsuario)
+
+        // Llamar a la API según el rol del usuario
+        if (rolUsuario == "admin") {
+            obtenerTodosLosPedidosDesdeAPI()  // Método para obtener todos los pedidos
+        } else if (rolUsuario == "empleado") {
+            obtenerPedidosDesdeAPI(idUsuario)  // Método para obtener pedidos del usuario específico
+        }
 
         return view
     }
 
+    // Método para obtener todos los pedidos si el usuario es admin
+    private fun obtenerTodosLosPedidosDesdeAPI() {
+        apiService.obtenerTodosLosPedidos().enqueue(object : Callback<List<Pedido>> {
+            override fun onResponse(call: Call<List<Pedido>>, response: Response<List<Pedido>>) {
+                if (response.isSuccessful) {
+                    val pedidos = response.body()
+                    if (pedidos != null) {
+                        produccionAdapter.setPedidos(pedidos)
+                    }
+                } else {
+                    // Manejar el caso de respuesta no exitosa
+                    Toast.makeText(context, "Error al obtener todos los pedidos", Toast.LENGTH_SHORT).show()
+                }
+            }
+
+            override fun onFailure(call: Call<List<Pedido>>, t: Throwable) {
+                // Manejar errores de red u otros problemas
+                Toast.makeText(context, "Error de red: ${t.message}", Toast.LENGTH_SHORT).show()
+            }
+        })
+    }
+
+    // Método para obtener los pedidos específicos de un usuario
     private fun obtenerPedidosDesdeAPI(idUsuario: Int) {
         apiService.obtenerPedidos(idUsuario).enqueue(object : Callback<List<Pedido>> {
             override fun onResponse(call: Call<List<Pedido>>, response: Response<List<Pedido>>) {
@@ -80,3 +119,4 @@ class ProduccionFragment : Fragment() {
         })
     }
 }
+

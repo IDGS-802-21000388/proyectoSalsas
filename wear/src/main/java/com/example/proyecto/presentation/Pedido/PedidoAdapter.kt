@@ -9,8 +9,8 @@ import android.widget.Spinner
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.proyecto.models.SolicitudProduccion
-import com.example.proyecto.models.Usuario
 import com.example.proyecto.R
+import com.example.proyecto.models.Usuario
 
 class PedidoAdapter(
     private val solicitudes: List<SolicitudProduccion>,

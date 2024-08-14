@@ -1,117 +1,74 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.wear.widget.BoxInsetLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="8dp"
-    android:background="@color/background_color"
-    tools:context=".PedidoDetalles">
+    android:padding="16dp"
+    android:background="@android:color/white">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         android:gravity="center_horizontal">
 
-        <!-- Title -->
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/order_title"
+        <!-- Título del Pedido -->
+        <TextView
+            android:id="@+id/orderTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Pedido de Aylin"
-            android:textSize="14sp"
+            android:text="Pedido de Usuario 1"
+            android:textSize="16sp"
             android:textStyle="bold"
-            android:textColor="@color/title_color" />
+            android:textColor="@android:color/black"
+            android:layout_marginBottom="8dp"
+            android:gravity="center_horizontal"/>
 
-        <!-- Customer Name -->
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/customer_name"
+        <!-- Nombre del Cliente -->
+        <TextView
+            android:id="@+id/customerName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Diego"
-            android:textSize="12sp"
-            android:textColor="@color/secondary_text_color"
-            android:layout_marginTop="8dp"/>
+            android:text="Jorge Morales"
+            android:textColor="@android:color/darker_gray"
+            android:layout_marginBottom="4dp"
+            android:gravity="center_horizontal"/>
 
-        <!-- Order Details with Status -->
+        <!-- Contenedor para el producto y el drawable de estado -->
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="16dp">
+            android:gravity="center_vertical">
 
-            <!-- Order Details -->
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/order_details"
+            <!-- Detalles del Pedido -->
+            <TextView
+                android:id="@+id/orderDetails"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="10 L de salsa habanera"
-                android:textSize="12sp"
-                android:textColor="@color/primary_text_color" />
+                android:text="3.0 Litros de Salsa Verde"
+                android:textColor="@android:color/darker_gray"
+                android:layout_marginRight="8dp"/>
 
-            <!-- Progress Status Indicator -->
+            <!-- Drawable de Estado -->
             <ImageView
-                android:id="@+id/status_point"
-                android:layout_width="16dp"
-                android:layout_height="16dp"
-                android:src="@drawable/circle_pending"
-                android:layout_marginStart="8dp" />
+                android:id="@+id/statusPoint"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/circle_pending" /> <!-- Cambia por el drawable que corresponda -->
         </LinearLayout>
 
-        <!-- Timer with Icon -->
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="16dp">
-
-            <!-- Timer -->
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/timer"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="8:39"
-                android:textSize="14sp"
-                android:textColor="@color/primary_text_color" />
-
-            <!-- Timer Icon -->
-            <ImageView
-                android:id="@+id/timer_icon"
-                android:layout_width="16dp"
-                android:layout_height="16dp"
-                android:src="@drawable/ic_timer"
-                android:layout_marginStart="4dp" />
-        </LinearLayout>
-
-        <!-- Instructions Label -->
-        <com.google.android.material.textview.MaterialTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="Preparar los ingredientes:"
-            android:textSize="12sp"
-            android:textColor="@color/primary_text_color" />
-
-        <!-- Instructions inside CardView -->
-        <com.google.android.material.card.MaterialCardView
+        <!-- Instrucciones del Paso -->
+        <TextView
+            android:id="@+id/instructions"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="1. Mezclar todos los ingredientes"
+            android:textColor="@android:color/black"
             android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
-            app:cardElevation="2dp"
-            app:cardCornerRadius="4dp"
-            android:padding="8dp"
-            android:background="@color/white">
+            android:padding="16dp"
+            android:background="@android:color/white"
+            android:gravity="center_horizontal" />
 
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/instructions"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Lava los chiles y retira los tallos.\nCorta la cebolla en trozos.\nPela los ajos.\nCorta la zanahoria en rodajas."
-                android:textSize="12sp"
-                android:textColor="@color/primary_text_color" />
-        </com.google.android.material.card.MaterialCardView>
 
     </LinearLayout>
-</androidx.wear.widget.BoxInsetLayout>
+</ScrollView>
