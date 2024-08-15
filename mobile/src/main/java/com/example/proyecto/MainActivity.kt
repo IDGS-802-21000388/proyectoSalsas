@@ -59,20 +59,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                     Toast.makeText(this, "No tienes acceso a esta sección", Toast.LENGTH_SHORT).show()
                 }
             }
-            R.id.nav_recipe -> {
-                if (rol == "admin" || rol == "empleado") {
-                    supportFragmentManager.beginTransaction().replace(R.id.fragment_container, RecipeFragment()).commit()
-                } else {
-                    Toast.makeText(this, "No tienes acceso a esta sección", Toast.LENGTH_SHORT).show()
-                }
-            }
-            R.id.nav_visibility -> {
-                if (rol == "admin") {
-                    supportFragmentManager.beginTransaction().replace(R.id.fragment_container, VisibilityFragment()).commit()
-                } else {
-                    Toast.makeText(this, "No tienes acceso a esta sección", Toast.LENGTH_SHORT).show()
-                }
-            }
             R.id.nav_shipping -> {
                 if (rol == "admin" || rol == "repartidor") {
                     supportFragmentManager.beginTransaction().replace(R.id.fragment_container, ShippingFragment()).commit()

@@ -15,21 +15,14 @@
             android:id="@+id/nav_assigment"
             android:icon="@drawable/nav_assignment"
             android:title="Assigment"/>
-        <item
-            android:id="@+id/nav_recipe"
-            android:icon="@drawable/nav_recipe"
-            android:title="Recipe"/>
-        <item
-            android:id="@+id/nav_visibility"
-            android:icon="@drawable/nav_visibility"
-            android:title="Visibility"/>
+
         <item
             android:id="@+id/nav_shipping"
             android:icon="@drawable/nav_shipping"
             android:title="Shipping"/>
         <item
             android:id="@+id/nav_production"
-            android:icon="@drawable/nav_shipping"
+            android:icon="@drawable/nav_recipe"
             android:title="Production"/>
     </group>
 
