@@ -35,7 +35,7 @@ class ProduccionFragment : Fragment() {
         // Recuperar el idUsuario y rol del usuario desde las SharedPreferences
         val sharedPref = requireContext().getSharedPreferences("miAppPref", Context.MODE_PRIVATE)
         val idUsuario = sharedPref.getInt("idUsuario", -1)
-        val rolUsuario = sharedPref.getString("rolUsuario", "")
+        val rolUsuario = sharedPref.getString("rol", "")
 
         pedidosRecyclerView = view.findViewById(R.id.pedidosRecyclerView)
         pedidosRecyclerView.layoutManager = LinearLayoutManager(context)
