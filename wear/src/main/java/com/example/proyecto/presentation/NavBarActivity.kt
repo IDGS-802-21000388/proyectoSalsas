@@ -54,4 +54,16 @@ class NavBarActivity : AppCompatActivity() {
             Toast.makeText(this, "No tienes acceso a esta sección", Toast.LENGTH_SHORT).show()
         }
     }
+
+    fun openAssignacionPersonal(view: android.view.View) {
+        val sharedPref = getSharedPreferences("miAppPref", Context.MODE_PRIVATE)
+        val rol = sharedPref.getString("rol", "")
+
+        if (rol == "admin" || rol == "repartidor") {
+            val intent = Intent(this, AssignacionPersonal::class.java)
+            startActivity(intent)
+        }else {
+            Toast.makeText(this, "No tienes acceso a esta sección", Toast.LENGTH_SHORT).show()
+        }
+    }
 }

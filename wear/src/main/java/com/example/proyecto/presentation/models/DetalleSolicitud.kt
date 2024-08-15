@@ -2,6 +2,7 @@ package com.example.proyecto.models
 
 data class DetalleSolicitud(
     val idDetalleSolicitud: Int,
+    var idSolicitud: Int,
     val fechaInicio: String,
     val fechaFin: String?,
     val idUsuario: Int,

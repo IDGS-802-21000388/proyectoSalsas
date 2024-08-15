@@ -16,7 +16,6 @@ object RetrofitClient {
     private val okHttpClient: OkHttpClient
         get() {
             return try {
-                // Create a trust manager that does not validate certificate chains
                 val trustAllCerts = arrayOf<TrustManager>(object : X509TrustManager {
                     override fun checkClientTrusted(chain: Array<java.security.cert.X509Certificate>, authType: String) {}
 
@@ -27,11 +26,9 @@ object RetrofitClient {
                     }
                 })
 
-                // Install the all-trusting trust manager
                 val sslContext = SSLContext.getInstance("SSL")
                 sslContext.init(null, trustAllCerts, java.security.SecureRandom())
 
-                // Create an ssl socket factory with our all-trusting manager
                 val sslSocketFactory = sslContext.socketFactory
 
                 OkHttpClient.Builder()

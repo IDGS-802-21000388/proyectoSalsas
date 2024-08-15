@@ -146,6 +146,7 @@ class AssigmentFragment : Fragment(), PedidoAdapter.OnItemClickListener {
 
                         val nuevoDetalle = DetalleSolicitud(
                             idDetalleSolicitud = 0,
+                            idSolicitud = solicitud.idSolicitud,
                             fechaInicio = fechaActual,
                             fechaFin = fechaActual,
                             idUsuario = usuario.idUsuario,

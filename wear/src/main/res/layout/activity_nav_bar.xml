@@ -68,6 +68,28 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
+            android:onClick="openAssignacionPersonal"
+            android:orientation="horizontal"
+            android:padding="8dp">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:contentDescription="@string/Assignacion"
+                android:src="@drawable/baseline_emoji_people_24" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#217765"
+                android:paddingStart="8dp"
+                android:text="@string/Assignacion" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
             android:onClick="openShippingActivity"
             android:orientation="horizontal"
             android:padding="8dp">
