@@ -12,7 +12,6 @@ import retrofit2.Callback
 import retrofit2.Response
 import android.app.AlertDialog
 import android.widget.Toast
-import com.example.proyecto.PedidoAdapter
 import com.example.proyecto.models.Usuario
 
 class AssigmentFragment : ComponentActivity(), PedidoAdapter.OnItemClickListener {

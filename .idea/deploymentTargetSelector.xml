@@ -15,10 +15,10 @@
       </SelectionState>
       <SelectionState runConfigName="wear">
         <option name="selectionMode" value="DROPDOWN" />
-        <DropdownSelection timestamp="2024-08-14T04:22:30.192788500Z">
+        <DropdownSelection timestamp="2024-08-14T17:41:57.613046900Z">
           <Target type="DEFAULT_BOOT">
             <handle>
-              <DeviceId pluginId="LocalEmulator" identifier="path=C:\Users\Lenovo\.android\avd\Wear_OS_Large_Round_API_33.avd" />
+              <DeviceId pluginId="LocalEmulator" identifier="path=C:\Users\Usuario\.android\avd\Wear_OS_Large_Round_API_30_2.avd" />
             </handle>
           </Target>
         </DropdownSelection>
