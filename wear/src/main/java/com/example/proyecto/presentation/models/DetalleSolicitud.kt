@@ -1,5 +1,7 @@
 package com.example.proyecto.models
 
+
+//Modelo de datos para la solicitud
 data class DetalleSolicitud(
     val idDetalleSolicitud: Int,
     var idSolicitud: Int,
